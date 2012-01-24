@@ -1,7 +1,6 @@
 import json
 import urllib
 import urllib2
-import time
 import base64
 
 
@@ -11,7 +10,6 @@ class Bitcoinica:
 		self.user = user
 		self.password = password
 		self.URI = "https://www.bitcoinica.com/api/"
-		self.timeout = 10
 
 	def get_quotes(self, pair):
 		return self.perform("quotes/"+pair+".json")
@@ -21,9 +19,6 @@ class Bitcoinica:
 
 	def get_compatable_quotes(self, pair):
 		return self.perform("quotes/"+pair+"/compatible.json")
-
-	def get_error(self):
-		return self.perform("none.json")
 
 	def get_candlesticks(self, pair="BTCUSD", n=100, period=900):
 		return self.perform("candlesticks/"+pair+".json",n=str(n), period=str(period))
@@ -77,5 +72,4 @@ class Bitcoinica:
 		#Get status of k
 		return status, k
 
-    # req.get_method() -> 'POST'
 
