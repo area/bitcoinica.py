@@ -55,7 +55,6 @@ class Bitcoinica:
 				req = urllib2.Request(url)
        			else:	
 				req.add_data(urllib.urlencode(kwargs))
-		print url
 		if auth:
     			auth = 'Basic ' + base64.urlsafe_b64encode("%s:%s" % (self.user, self.password))
     			req.add_header('Authorization', auth)
